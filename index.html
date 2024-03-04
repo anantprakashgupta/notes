@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="note.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-  <title>Note Taking</title>
+  <title>Notes Making</title>
 </head>
   <style>
     :root {
 
-  --primaryColor: #0e153a;
-  --secondarycolor: #e2f3f5;
+  --primaryColor: #696b74;
+  --secondarycolor: #ffffff;
   --primaryText: #3d5af1;
 }
 
@@ -205,9 +205,280 @@ form .row label {
   font-size: 17px;
   background: var(--primaryColor);
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+} */
+
+#main_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 15%;
+}
+
+#pdf_input_container,
+#selected_pdf_container,
+#range_container,
+#compress_pdf_container {
+  margin-bottom: 20px;
+  padding: 10px 10px;
+}
+
+#compress_input {
+  width: 100%;
+}
+
+#compress_pdf {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#compress_pdf:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 768px) {
+  #main_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #pdf_input_container {
+    width: 30%;
+  }
+
+  #selected_pdf_container {
+    width: 60%;
+  }
+
+  #range_container {
+    width: 30%;
+  }
+
+  #compress_pdf_container {
+    width: 30%;
+  }
+}
+/* Input tag styling */
+input[type="file"] {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Button tag styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Canvas tag styling */  
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+    /* ===============================  */
+   
+        header {
+            background-color: #116890;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Center elements vertically */
+        }
+
+        header h1 {
+            color: white;
+            font-size: 20px;
+            margin: 0;
+            /* Remove bottom margin for better alignment */
+        }
+
+        nav {
+            display: flex;
+            list-style: none;
+            /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            /* Adjust spacing between list items as needed */
+            margin-right: 20px;
+        }
+
+        nav a.active {
+            background-color: #439a9a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        #apiData {
+            background-color: #116890;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        button {
+            background-color: #90116a;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            width: 100%;
+        }
+
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            /* Make the list horizontal */
+            /* Flexbox properties for spacing and centering items */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .data-list li {
+            margin-bottom: 10px;
+        }
+
+        .data-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Media Queries for responsiveness */
+        @media only screen and (max-width: 600px) {
+            nav a {
+                font-size: 16px;
+                margin-right: 10px;
+                /* Adjust spacing for smaller screens */
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        #popupContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        #popupContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+        }
+
+        #popupContainer.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        #closeButton {
+          
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            color: red;
+        }
   </style>
 
 <body>
+
+    <header>
+        <h1>All In <span style="color: rgb(157, 255, 0);">one</span></h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+      </header>
+
   <div class="popup-box">
     <div class="popup">
       <div class="content">
